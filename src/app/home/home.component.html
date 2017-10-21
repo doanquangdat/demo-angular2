@@ -1,0 +1,7 @@
+<div>
+  <input type="text" [(ngModel)]="message" (keyup.enter)="onclick()">
+  <button (click)="onclick()">Click</button>
+  <hr>
+  <p *ngFor="let msg of messages">{{msg}}</p>
+  <button class="btn btn-sm btn-primay" (click)="gotoEmployee()">Go to employee</button>
+</div>

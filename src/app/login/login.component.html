@@ -1,0 +1,24 @@
+<div class="container text-center">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 well">
+    <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+      <h2 class="form-signin-heading">Please sign in</h2>
+      <label for="inputUser" class="text-left">Username</label>
+      <input type="text" id="inputUser" class="form-control" minlength="2" maxlength="16" required name="user" #user="ngModel" ngModel>
+      <div *ngIf="user.errors && (user.dirty || user.touched)" [style.margin-top.px]="5" class="alert alert-danger">
+          <div [hidden]="!user.errors.required">Username is required</div>
+          <div [hidden]="!user.errors.minlength">Username must be at least 2 characters</div>
+          <div [hidden]="!user.errors.maxlength">Username must be less than 16 characters</div>
+      </div>
+      <br>
+      <label for="inputPassword" class="text-left">Password</label>
+      <input type="password" id="inputPassword" class="form-control" required minlength="8" maxlength="16" name="pass" #pass="ngModel" ngModel>
+      <div *ngIf="pass.errors && (pass.dirty || pass.touched)" [style.margin-top.px]="5" class="alert alert-danger">
+        <div [hidden]="!pass.errors.required">Username is required</div>
+        <div [hidden]="!pass.errors.minlength">Username must be at least 8 characters</div>
+        <div [hidden]="!pass.errors.maxlength">Username must be less than 16 characters</div>
+      </div>
+      <br>
+      <button class="btn btn-lg btn-primary" type="submit" [disabled]="!loginForm.valid">Sign in</button>
+    </form>
+  </div>
+</div>
